@@ -1,5 +1,12 @@
 <script setup>
-// import img from "./assets/media/avatar-logo.png"
+import { ref } from 'vue'
+import { useRouter } from "vue-router"
+import { reactive, onMounted } from 'vue';
+import axios from 'axios';
+const logout = () => {
+	localStorage.removeItem('token')
+	router.push('/')
+}
 </script>
 <template>
 	<div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar"
@@ -183,8 +190,7 @@
 					<!--end::Menu item-->
 					<!--begin::Menu item-->
 					<div class="menu-item px-5">
-						<a href="../../demo23/dist/authentication/layouts/corporate/sign-in.html"
-							class="menu-link px-5">Sign Out</a>
+						<a href="#" @click="logout" class="menu-link px-5">Sign Out</a>
 					</div>
 					<!--end::Menu item-->
 				</div>
@@ -351,37 +357,36 @@
 						<!--begin::Col-->
 						<div class="col mb-4">
 							<!--begin::Link-->
-							<router-link to="/"
+							<router-link to="/gjykata_kushtetuese"
 								class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-lg-90px h-lg-90px w-70px h-70px border-gray-200">
 								<!--begin::Icon-->
 								<span class="mb-2">
 									<i class="ki-outline ki-geolocation fs-1"></i>
 								</span>
-								<!--end::Icon-->
-								<!--begin::Label-->
-								<span class="fs-7 fw-bold">Gjykate Kushtetuese</span>
-								<!--end::Label-->
-							</router-link>
-							<!--end::Link-->
-						</div>
-						<!--end::Col-->
-						<!--begin::Col-->
-						<div class="col mb-4">
-							<!--begin::Link-->
+							<!--end::Icon-->
+							<!--begin::Label-->
+							<span class="fs-7 fw-bold">Gjykate Kushtetuese</span>
+							<!--end::Label-->
+						</router-link>
+						<!--end::Link-->
+					</div>
+					<!--end::Col-->
+					<!--begin::Col-->
+					<!-- <div class="col mb-4">
+							
 							<a href="../../demo23/dist/apps/file-manager/folders.html"
 								class="btn btn-icon btn-outline btn-bg-light btn-active-light-primary btn-flex flex-column flex-center w-lg-90px h-lg-90px w-70px h-70px border-gray-200"
 								data-kt-button="true">
-								<!--begin::Icon-->
-								<span class="mb-2">
-									<i class="ki-outline ki-abstract-28 fs-1"></i>
-								</span>
-								<!--end::Icon-->
-								<!--begin::Label-->
-								<span class="fs-7 fw-bold">Te tjera</span>
-								<!--end::Label-->
-							</a>
-							<!--end::Link-->
-						</div>
+								
+									<span class="mb-2">
+										<i class="ki-outline ki-abstract-28 fs-1"></i>
+									</span>
+								
+									<span class="fs-7 fw-bold">Te tjera</span>
+								
+								</a>
+							
+							</div> -->
 						<!--end::Col-->
 						<!--begin::Col-->
 						<div class="col mb-4">

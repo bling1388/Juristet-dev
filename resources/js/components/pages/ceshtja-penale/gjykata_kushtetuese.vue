@@ -1,7 +1,11 @@
 <script setup>
-import Header from './header.vue'
-import Sidebar from './sidebar.vue'
-import Footer from './footer.vue'
+import { ref } from 'vue'
+import { useRouter } from "vue-router"
+import { reactive, onMounted } from 'vue';
+import axios from 'axios';
+import Header from '@/components/layouts/header.vue'
+import Sidebar from '@/components/layouts/sidebar.vue'
+import Footer from '@/components/layouts/footer.vue'
 
 
 </script>
@@ -24,7 +28,7 @@ import Footer from './footer.vue'
 					<!--begin::Main-->
 					<main class="app-main flex-column flex-row-fluid " id="kt_app_main">
 						<!--begin::Content wrapper-->
-						<div class="d-flex flex-column flex-column-fluid flex-grow-1 min-vh-100">
+						<div class="d-flex flex-column flex-column-fluid flex-grow-2 min-vh-100">
 							<!--begin::Content-->
 							<router-view class=" "></router-view>
 							<!--end::Content-->

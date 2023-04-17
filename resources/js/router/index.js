@@ -15,6 +15,7 @@ import gjykim_shakalla_1 from '../components/pages/ceshtja-penale/gjykim_shakall
 import gjykim_themeli from '../components/pages/ceshtja-penale/gjykim_themeli.vue'
 import gjykim_apeli from '../components/pages/ceshtja-penale/gjykim_apeli.vue'
 import gjykim_ne_gjykate_te_larte from '../components/pages/ceshtja-penale/gjykim_ne_gjykate_te_larte.vue'
+import gjykata_kushtetuese from '../components/pages/ceshtja-penale/gjykata_kushtetuese.vue'
 
 //norfound
 import notFound from '../components/notFound.vue'
@@ -43,7 +44,7 @@ const routes = [
         name: 'Home',
         component: homePagesIndex,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
 
@@ -73,7 +74,7 @@ const routes = [
         name: 'Masa',
         component: masa,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -81,7 +82,7 @@ const routes = [
         name: 'Hetime',
         component: hetime,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -89,7 +90,7 @@ const routes = [
         name: 'Gjykim_shakalla_1',
         component: gjykim_shakalla_1,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -97,7 +98,7 @@ const routes = [
         name: 'Gjykim_themeli',
         component: gjykim_themeli,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -105,7 +106,7 @@ const routes = [
         name: 'Gjykim_apeli',
         component: gjykim_apeli,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
         }
     },
     {
@@ -113,7 +114,15 @@ const routes = [
         name: 'Gjykim_ne_gjykate_te_larte',
         component: gjykim_ne_gjykate_te_larte,
         meta: {
-            requiresAuth: false
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/gjykata_kushtetuese',
+        name: 'Gjykata_kushtetuese',
+        component: gjykata_kushtetuese,
+        meta: {
+            requiresAuth: true
         }
     },
 
@@ -134,18 +143,16 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        const token = localStorage.getItem('token')
-        if (!token) {
-            next('/login')
-        } else {
-            next()
-        }
+    const isLoggedIn = !!localStorage.getItem('token')
+
+    if (to.name === 'Login' && isLoggedIn) {
+        next('/masa')
+    } else if (to.matched.some(record => record.meta.requiresAuth) && !isLoggedIn) {
+        next('/login')
     } else {
         next()
     }
 })
-
 
 
 

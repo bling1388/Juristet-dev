@@ -4,12 +4,15 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    use SendsPasswordResetEmails, ResetsPasswords;
 
     public function getAuth()
     {
@@ -92,4 +95,10 @@ class AuthController extends Controller
 
         return response()->json($response, 200);
     }
+
+    public function sendPasswordResetLink(Request $request)
+    {
+        return $this->sendResetLinkEmail($request);
+    }
+
 }
