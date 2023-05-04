@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\KlientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/users', [UserController::class, 'store']);
     Route::put('/users', [UserController::class, 'update']);
     Route::delete('/users', [UserController::class, 'destroy']);
+
+// Krijo klient
+
+    Route::get('/klients', [KlientController::class, 'index']);
+    Route::post('/klients', [KlientController::class, 'store']);
+    Route::put('/klients/update/{id}', [KlientController::class, 'update']);
+    Route::delete('/klients/delete/{id}', [KlientController::class, 'destroy']);
 
 });

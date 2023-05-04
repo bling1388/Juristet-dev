@@ -21,7 +21,7 @@
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
     <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
 
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" />
 
     <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
@@ -33,7 +33,36 @@
 
 <body>
     <div id="app"></div>
+    @if (\Session::has('success'))
+        <script>
+            Swal.fire(
+                'Good job!',
+                '{{ \Session::get('success') }}',
+                'success'
+                showConfirmButton: false,
+                timer: 1500
+            )
+        </script>
+    @endif
+    @if (\Session::has('info'))
+        <script>
+            Swal.fire(
+                'Be careful!',
+                '{{ \Session::get('info') }}',
+                'info'
+            )
+        </script>
+    @endif
 
+    @if (\Session::has('error'))
+        <script>
+            Swal.fire(
+                'Error!',
+                '{{ \Session::get('error') }}',
+                'info'
+            )
+        </script>
+    @endif
     @vite('resources/js/app.js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
