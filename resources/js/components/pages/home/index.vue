@@ -14,7 +14,7 @@
 
                     </span>
                 </a>
-                <a @click="showAddClientForm = true; showCreateDosjeForm = false " href="#"
+                <a @click="showAddClientForm = true; showCreateDosjeForm = false" href="#"
                     class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#klient">Shto
                     kliente
                 </a>
@@ -25,10 +25,10 @@
 
     </div>
 
-    <!-- <div style="d-flex justify-content-center">
+    <div style="d-flex justify-content-center">
 
         <teleport to="body">
-            <div class="modal " v-if=" showCreateDosjeForm ">
+            <div class="modal " v-if="showCreateDosjeForm">
                 <div class="modal-content col-md-6">
                     <h1>hello</h1>
                     <p>Lorem ipsum dolor sit
@@ -36,16 +36,16 @@
                         elit. Voluptatem consequuntur
                         vel illum asperiores tempore
                         sequi?</p>
-                   
+
                 </div>
 
             </div>
         </teleport>
-    </div> -->
+    </div>
 
 
     <br><br>
-    <div class="modal " v-if=" showAddClientForm ">
+    <div class="modal " v-if="showAddClientForm">
         <div class="card mb-5 mb-xl-10 container mt-5 col-md-4">
             <!--begin::Card header-->
             <div class="card-header border-0 cursor-pointer d-flex align-items-center" role="button"
@@ -56,7 +56,7 @@
                     <h3 class="fw-bold m-0">Detajet e profilit</h3>
                 </div>
                 <!--begin::Close-->
-                <div @click=" showAddClientForm = false " class="btn btn-sm btn-icon btn-active-color-primary"
+                <div @click=" showAddClientForm = false" class="btn btn-sm btn-icon btn-active-color-primary"
                     data-bs-dismiss="modal">
                     <i class="ki-outline ki-cross fs-1"></i>
                 </div>
@@ -68,7 +68,7 @@
             <!--begin::Content-->
             <div id="kt_account_settings_profile_details" class="collapse show">
                 <!--begin::Form-->
-                <form @submit.prevent=" handleSubmit ">
+                <form @submit.prevent="handleSubmit">
 
                     <!--begin::Card body-->
                     <div class="card-body border-top p-9">
@@ -140,7 +140,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                 <input type="text" name="emer" class="form-control form-control-lg form-control-solid"
-                                    v-model=" emer ">
+                                    v-model="emer">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                             <!--end::Col-->
@@ -155,7 +155,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                 <input type="text" name="atesia" class="form-control form-control-lg form-control-solid"
-                                    v-model=" atesia ">
+                                    v-model="atesia">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                             <!--end::Col-->
@@ -170,7 +170,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                 <input type="text" name="mbiemer" class="form-control form-control-lg form-control-solid"
-                                    v-model=" mbiemer ">
+                                    v-model="mbiemer">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                             <!--end::Col-->
@@ -192,7 +192,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                 <input type="tel" name="id_nr" class="form-control form-control-lg form-control-solid"
-                                    v-model=" id_nr ">
+                                    v-model="id_nr">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                             <!--end::Col-->
@@ -210,7 +210,7 @@
                                     <!--begin::Option-->
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
                                         <input class="form-check-input" name="i_denuar" type="radio" value="1"
-                                            v-model=" i_denuar ">
+                                            v-model="i_denuar">
                                         <span class="fw-semibold ps-2 fs-6">
                                             PO
                                         </span>
@@ -220,7 +220,7 @@
                                     <!--begin::Option-->
                                     <label class="form-check form-check-custom form-check-inline form-check-solid">
                                         <input class="form-check-input" name="i_denuar" type="radio" value="0"
-                                            v-model=" i_denuar ">
+                                            v-model="i_denuar">
                                         <span class="fw-semibold ps-2 fs-6">
                                             JO
                                         </span>
@@ -242,7 +242,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row">
                                 <select name="statusi_civil" class="form-control form-control-lg form-control-solid"
-                                    v-model=" statusi_civil ">
+                                    v-model="statusi_civil">
                                     <option value="">Zgjidhni Statusin Civil</option>
                                     <option value="I Martuar">I Martuar</option>
                                     <option value="Beqar">Beqar</option>
@@ -265,7 +265,7 @@
                                     <!--begin::Option-->
                                     <label class="form-check form-check-custom form-check-inline form-check-solid me-5">
                                         <input class="form-check-input" name="femije_te_mitur" type="radio" value="1"
-                                            v-model=" femije_te_mitur ">
+                                            v-model="femije_te_mitur">
                                         <span class="fw-semibold ps-2 fs-6">
                                             PO
                                         </span>
@@ -275,7 +275,7 @@
                                     <!--begin::Option-->
                                     <label class="form-check form-check-custom form-check-inline form-check-solid">
                                         <input class="form-check-input" name="femije_te_mitur" type="radio" value="0"
-                                            v-model=" femije_te_mitur ">
+                                            v-model="femije_te_mitur">
                                         <span class="fw-semibold ps-2 fs-6">
                                             JO
                                         </span>
@@ -297,7 +297,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                 <input type="text" name="personi_kontaktit"
-                                    class="form-control form-control-lg form-control-solid" v-model=" personi_kontaktit ">
+                                    class="form-control form-control-lg form-control-solid" v-model="personi_kontaktit">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                             <!--end::Col-->
@@ -312,7 +312,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row fv-plugins-icon-container">
                                 <input type="text" name="numri_kontaktit"
-                                    class="form-control form-control-lg form-control-solid" v-model=" numri_kontaktit ">
+                                    class="form-control form-control-lg form-control-solid" v-model="numri_kontaktit">
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
                             </div>
                             <!--end::Col-->
@@ -325,7 +325,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row">
                                 <select name="arsimi" class="form-control form-control-lg form-control-solid"
-                                    v-model=" arsimi ">
+                                    v-model="arsimi">
                                     <option value="">Zgjidhni Arsimin</option>
                                     <option value="9 vjeçar">9 vjeçar</option>
                                     <option value="I Mesëm">I Mesëm</option>
@@ -355,7 +355,7 @@
 
 
     <teleport to="body ">
-        <div class="modal " tabindex="-1" role="dialog" v-if=" showCreateDosjeForm ">
+        <div class="modal " tabindex="-1" role="dialog" v-if="showCreateDosjeForm">
 
             <!--begin::Modal content-->
             <div class="modal-content ">
@@ -367,7 +367,7 @@
                         <!--end::Modal title-->
                     </div>
                     <!--begin::Close-->
-                    <div @click=" showCreateDosjeForm = false " class="btn btn-sm btn-icon btn-active-color-primary"
+                    <div @click=" showCreateDosjeForm = false" class="btn btn-sm btn-icon btn-active-color-primary"
                         data-bs-dismiss="modal">
                         <i class="ki-outline ki-cross fs-1 fw-bold"></i>
                     </div>
@@ -565,9 +565,9 @@
                                             <!--begin::Input-->
                                             <!-- <input type="text" class="form-control form-control-lg form-control-solid"
                                                 name="name" placeholder="" value="" > -->
-                                            <select id="name-dropdown" v-model=" selectedName "
+                                            <select id="name-dropdown" v-model="selectedName"
                                                 class="form-control form-control-lg form-control-solid" name="emer">
-                                                <option v-for="    klient     in     klients    " :value=" klient.id ">{{
+                                                <option v-for="    klient     in     klients    " :value="klient.id">{{
                                                     klient.emer }}
                                                 </option>
                                             </select>
